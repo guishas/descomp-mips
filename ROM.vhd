@@ -15,17 +15,25 @@ entity ROM IS
 end entity;
 
 architecture assincrona OF ROM IS
-  type blocoMemoria IS ARRAY(0 TO 2**memoryAddrWidth - 1) OF std_logic_vector(dataWidth-1 downto 0);
+	type blocoMemoria IS ARRAY(0 TO 2**memoryAddrWidth - 1) OF std_logic_vector(dataWidth-1 downto 0);
 
-  signal memROM: blocoMemoria;
-  attribute ram_init_file : string;
-  attribute ram_init_file of memROM:
-  signal is "ROMcontent.mif";
+	function initMemory
+		return blocoMemoria is variable tmp : blocoMemoria := (others => (others => '0'));
+	begin
 
--- Utiliza uma quantidade menor de endereços locais:
-   signal EnderecoLocal : std_logic_vector(memoryAddrWidth-1 downto 0);
+		tmp(0)  := "000000" & "00000" & "00000" & "00000" & "00000" & "000000";
+		tmp(1)  := "000000" & "01011" & "01010" & "01001" & "00000" & "100000";
+		tmp(2)  := "000000" & "01011" & "01010" & "01001" & "00000" & "100010";
+		return tmp;
+   end initMemory;
+
+
+   signal memROM : blocoMemoria := initMemory;   
+	signal EnderecoLocal : std_logic_vector(memoryAddrWidth-1 downto 0);
 
 begin
+
   EnderecoLocal <= Endereco(memoryAddrWidth+1 downto 2);
   Dado <= memROM (to_integer(unsigned(EnderecoLocal)));
+  
 end architecture;

@@ -10,7 +10,8 @@ entity mips is
 		CLOCK_50			 	: in std_logic;
 		HABILITA_BANREG 	: in std_logic;
 		KEY					: in std_logic_vector(3 DOWNTO 0);
-		OPERACAO_ULA		: in std_logic
+		PC_OUT				: out std_logic_vector(31 DOWNTO 0);
+		ULA_OUT				: out std_logic_vector(31 DOWNTO 0)
   );
 	
 end entity;
@@ -22,13 +23,13 @@ architecture arquitetura of mips is
 	signal SIG_RD	 			: std_logic_vector(4 DOWNTO 0);
 	signal SIG_RS			 	: std_logic_vector(4 DOWNTO 0);
 	signal SIG_RT			 	: std_logic_vector(4 DOWNTO 0);
+	signal SIG_FUNCT			: std_logic_vector(5 DOWNTO 0);
 	signal SIG_INCPC_TO_PC 	: std_logic_vector(31 DOWNTO 0);
 	signal SIG_PC_OUT      	: std_logic_vector(31 DOWNTO 0);
 	signal SIG_ROM_OUT     	: std_logic_vector(31 DOWNTO 0);
 	signal SIG_ULA_OUT	  	: std_logic_vector(31 DOWNTO 0);
 	signal SIG_BAN_OUT_REGA	: std_logic_vector(31 DOWNTO 0);
-	signal SIG_BAN_OUT_REGB	: std_logic_vector(31 DOWNTO 0);
-	
+	signal SIG_BAN_OUT_REGB	: std_logic_vector(31 DOWNTO 0);	
 
 begin
 
@@ -51,7 +52,7 @@ PC: entity work.registradorGenerico generic map(larguraDados => 32)
 			RST => '0'
 		);
 
-INCREMENTA_PC : entity work.somaConstante generic map(larguraDados => 32, constante => 32)
+INCREMENTA_PC : entity work.somaConstante generic map(larguraDados => 32, constante => 4)
 		port map(
 			entrada => SIG_PC_OUT,
 			saida => SIG_INCPC_TO_PC
@@ -79,7 +80,7 @@ ULA : entity work.ULASomaSub generic map(larguraDados => 32)
 		port map (
 			entradaA => SIG_BAN_OUT_REGA,
 			entradaB => SIG_BAN_OUT_REGB,
-			seletor => OPERACAO_ULA,
+			seletor => SIG_FUNCT,
 			saida => SIG_ULA_OUT
 		);
 		
@@ -87,5 +88,9 @@ ULA : entity work.ULASomaSub generic map(larguraDados => 32)
 SIG_RD <= SIG_ROM_OUT(15 DOWNTO 11);
 SIG_RS <= SIG_ROM_OUT(25 DOWNTO 21);
 SIG_RT <= SIG_ROM_OUT(20 DOWNTO 16);
+SIG_FUNCT <= SIG_ROM_OUT(5 DOWNTO 0);
+
+PC_OUT <= SIG_PC_OUT;
+ULA_OUT <= SIG_ULA_OUT;
 
 end architecture;
