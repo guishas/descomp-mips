@@ -1,6 +1,6 @@
 # Projeto do MIPS DLX para a disciplina de Design de Computadores
 
-* Desenvolvedores*:
+**Desenvolvedores**:
 
 - Guilherme Lunetta
 - José Rafael Fernandes
