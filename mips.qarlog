@@ -1,0 +1,22 @@
+Quartus Prime Archive log --	C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qarlog
+
+Archive:	C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qar
+Date:		Wed Nov 02 15:58:46 2022
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/RAM.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/ROM.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULASomaSub.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform.vwf
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/bancoReg.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qpf
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qsf
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/registradorGenerico.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/somaConstante.vhd
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 11 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
