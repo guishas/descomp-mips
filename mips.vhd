@@ -12,10 +12,17 @@ entity mips is
 		RE_RAM				: in std_logic;
 		WR_RAM				: in std_logic;
 		BEQ 					: in std_logic;
+		SELMUX_RT_IM		: in std_logic;
 		KEY					: in std_logic_vector(3 DOWNTO 0);
 		SELETOR_ULA			: in std_logic_vector(5 DOWNTO 0);
 		PC_OUT				: out std_logic_vector(31 DOWNTO 0);
-		ULA_OUT				: out std_logic_vector(31 DOWNTO 0)
+		ULA_OUT				: out std_logic_vector(31 DOWNTO 0);
+		ENTRADA_ULA_A		: out std_logic_vector(31 DOWNTO 0);
+		ENTRADA_ULA_B		: out std_logic_vector(31 DOWNTO 0);
+		SAIDA_RAM			: out std_logic_vector(31 DOWNTO 0);
+		ENTRADA_RAM			: out std_logic_vector(31 DOWNTO 0);
+		FLAG_Z				: out std_logic;
+		AND_BEQ				: out std_logic
   );
 	
 end entity;
@@ -34,6 +41,7 @@ architecture arquitetura of mips is
 	signal SIG_INCPC_OUT 			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_INCPC_BEQ_OUT 		: std_logic_vector(31 DOWNTO 0);
 	signal SIG_MUX_BEQ_OUT 			: std_logic_vector(31 DOWNTO 0);
+	signal SIG_MUX_ULAB_OUT			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_PC_OUT      			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_ROM_OUT     			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_RAM_OUT				: std_logic_vector(31 DOWNTO 0);
@@ -83,6 +91,14 @@ MUX_BEQ : entity work.muxGenerico2x1 generic map(larguraDados => 32)
 			saida_MUX => SIG_MUX_BEQ_OUT
 		);
 		
+MUX_ULAB : entity work.muxGenerico2x1 generic map(larguraDados => 32)
+		port map(
+			entradaA_MUX => SIG_BAN_OUT_REGB,
+			entradaB_MUX => SIG_IMEDIATO_EXTENDIDO,
+			seletor_MUX => SELMUX_RT_IM,
+			saida_MUX => SIG_MUX_ULAB_OUT
+		);
+		
 		
 ROM : entity work.ROM generic map(dataWidth => 32, addrWidth => 32, memoryAddrWidth => 6)
 		port map (
@@ -116,7 +132,7 @@ BANREG : entity work.bancoReg generic map(larguraDados => 32, larguraEndBancoReg
 ULA : entity work.ULASomaSub generic map(larguraDados => 32)
 		port map (
 			entradaA => SIG_BAN_OUT_REGA,
-			entradaB => SIG_IMEDIATO_EXTENDIDO,
+			entradaB => SIG_MUX_ULAB_OUT,
 			seletor => SELETOR_ULA,
 			saida => SIG_ULA_OUT,
 			saida_flag_zero => SIG_SAIDA_FLAGZ_ULA
@@ -137,5 +153,11 @@ SIG_IMEDIATO <= SIG_ROM_OUT(15 DOWNTO 0);
 
 PC_OUT <= SIG_PC_OUT;
 ULA_OUT <= SIG_ULA_OUT;
+FLAG_Z <= SIG_SAIDA_FLAGZ_ULA;
+ENTRADA_ULA_A <= SIG_BAN_OUT_REGA;
+ENTRADA_ULA_B <= SIG_MUX_ULAB_OUT;
+AND_BEQ <= BEQ and SIG_SAIDA_FLAGZ_ULA;
+SAIDA_RAM <= SIG_RAM_OUT;
+ENTRADA_RAM <= SIG_BAN_OUT_REGB;
 
 end architecture;

@@ -21,8 +21,9 @@ architecture assincrona OF ROM IS
 		return blocoMemoria is variable tmp : blocoMemoria := (others => (others => '0'));
 	begin
 
-		tmp(0)  := "000000" & "00000" & "00000" & "0000000000000000";
-		tmp(1)  := "000000" & "01011" & "01011" & "0000000001000000";
+		tmp(0)  := "000000" & "01011" & "01010" & "0000000001000000";
+		tmp(1)  := "000000" & "00000" & "00000" & "0000000000000000";
+		tmp(2)  := "000000" & "01011" & "01010" & "0000000001000000";
 		return tmp;
    end initMemory;
 
