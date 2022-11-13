@@ -13,6 +13,8 @@ entity mips is
 		WR_RAM				: in std_logic;
 		BEQ 					: in std_logic;
 		SELMUX_RT_IM		: in std_logic;
+		SELMUX_PC			: in std_logic;
+		SELMUX_BANREG		: in std_logic;
 		KEY					: in std_logic_vector(3 DOWNTO 0);
 		SELETOR_ULA			: in std_logic_vector(5 DOWNTO 0);
 		PC_OUT				: out std_logic_vector(31 DOWNTO 0);
@@ -23,6 +25,7 @@ entity mips is
 		ENTRADA_RAM			: out std_logic_vector(31 DOWNTO 0);
 		FLAG_Z				: out std_logic;
 		AND_BEQ				: out std_logic
+		
   );
 	
 end entity;
@@ -35,6 +38,7 @@ architecture arquitetura of mips is
 	signal SIG_RD	 					: std_logic_vector(4 DOWNTO 0);
 	signal SIG_RS			 			: std_logic_vector(4 DOWNTO 0);
 	signal SIG_RT			 			: std_logic_vector(4 DOWNTO 0);
+	signal SIG_MUXBANREG_OUT		: std_logic_vector(4 DOWNTO 0);
 	signal SIG_FUNCT					: std_logic_vector(5 DOWNTO 0);
 	signal SIG_IMEDIATO				: std_logic_vector(15 DOWNTO 0);
 	signal SIG_IMEDIATO_EXTENDIDO	: std_logic_vector(31 DOWNTO 0);
@@ -42,6 +46,7 @@ architecture arquitetura of mips is
 	signal SIG_INCPC_BEQ_OUT 		: std_logic_vector(31 DOWNTO 0);
 	signal SIG_MUX_BEQ_OUT 			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_MUX_ULAB_OUT			: std_logic_vector(31 DOWNTO 0);
+	signal SIG_MUXPC_OUT				: std_logic_vector(31 DOWNTO 0);
 	signal SIG_PC_OUT      			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_ROM_OUT     			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_RAM_OUT				: std_logic_vector(31 DOWNTO 0);
@@ -63,7 +68,7 @@ end generate;
 
 PC: entity work.registradorGenerico generic map(larguraDados => 32)
 		port map(
-			DIN => SIG_MUX_BEQ_OUT,
+			DIN => SIG_MUXPC_OUT,
 			DOUT =>	SIG_PC_OUT,
 			ENABLE =>'1',
 			CLK => SIG_CLK,
@@ -91,12 +96,28 @@ MUX_BEQ : entity work.muxGenerico2x1 generic map(larguraDados => 32)
 			saida_MUX => SIG_MUX_BEQ_OUT
 		);
 		
+MUX_BANREG : entity work.muxGenerico2x1 generic map(larguraDados => 5)
+		port map(
+			entradaA_MUX => SIG_RT,
+			entradaB_MUX => SIG_RD,
+			seletor_MUX => SELMUX_BANREG,
+			saida_MUX => SIG_MUXBANREG_OUT
+		);
+		
 MUX_ULAB : entity work.muxGenerico2x1 generic map(larguraDados => 32)
 		port map(
 			entradaA_MUX => SIG_BAN_OUT_REGB,
 			entradaB_MUX => SIG_IMEDIATO_EXTENDIDO,
 			seletor_MUX => SELMUX_RT_IM,
 			saida_MUX => SIG_MUX_ULAB_OUT
+		);
+		
+MUX_JMP : entity work.muxGenerico2x1 generic map(larguraDados => 32)
+		port map(
+			entradaA_MUX => SIG_MUX_BEQ_OUT,
+			entradaB_MUX => SIG_INCPC_OUT(31 DOWNTO 28) & SIG_IMEDIATO_EXTENDIDO(25 DOWNTO 0) & "00",
+			seletor_MUX => SELMUX_PC,
+			saida_MUX => SIG_MUXPC_OUT
 		);
 		
 		
@@ -122,7 +143,7 @@ BANREG : entity work.bancoReg generic map(larguraDados => 32, larguraEndBancoReg
 			clk => SIG_CLK,
 			enderecoA => SIG_RS,  
 			enderecoB => SIG_RT, 
-			enderecoC => SIG_RT, 
+			enderecoC => SIG_MUXBANREG_OUT, 
 			dadoEscritaC => SIG_RAM_OUT,
 			escreveC => HABILITA_BANREG,
 			saidaA => SIG_BAN_OUT_REGA,
@@ -143,6 +164,7 @@ EXTENSOR : entity work.extensorSinalGenerico generic map(larguraDadoEntrada => 1
 			estendeSinal_IN => SIG_IMEDIATO,
 			estendeSinal_OUT => SIG_IMEDIATO_EXTENDIDO
 		);
+		
 		
 
 SIG_RD <= SIG_ROM_OUT(15 DOWNTO 11);
