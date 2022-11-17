@@ -11,7 +11,7 @@ entity muxGenerico2x1 is
 		seletor_MUX : in std_logic;
 		saida_MUX : out std_logic_vector((larguraDados-1) downto 0)
   );
-end entity;
+end entity;  
 
 architecture comportamento of muxGenerico2x1 is
   begin

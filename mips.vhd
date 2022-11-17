@@ -15,8 +15,9 @@ entity mips is
 		SELMUX_RT_IM		: in std_logic;
 		SELMUX_PC			: in std_logic;
 		SELMUX_BANREG		: in std_logic;
+		ULA_INVERTEB		: in std_logic;
 		KEY					: in std_logic_vector(3 DOWNTO 0);
-		SELETOR_ULA			: in std_logic_vector(5 DOWNTO 0);
+		SELETOR_ULA			: in std_logic_vector(1 DOWNTO 0);
 		PC_OUT				: out std_logic_vector(31 DOWNTO 0);
 		ULA_OUT				: out std_logic_vector(31 DOWNTO 0);
 		ENTRADA_ULA_A		: out std_logic_vector(31 DOWNTO 0);
@@ -53,7 +54,7 @@ architecture arquitetura of mips is
 	signal SIG_ULA_OUT	  			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_BAN_OUT_REGA			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_BAN_OUT_REGB			: std_logic_vector(31 DOWNTO 0);
-
+	
 begin
 
 gravar: if simulacao generate
@@ -150,14 +151,24 @@ BANREG : entity work.bancoReg generic map(larguraDados => 32, larguraEndBancoReg
 			saidaB => SIG_BAN_OUT_REGB
 		);
 		
-ULA : entity work.ULASomaSub generic map(larguraDados => 32)
-		port map (
+ULA_MIPS :	entity work.ULA
+		port map(
 			entradaA => SIG_BAN_OUT_REGA,
-			entradaB => SIG_MUX_ULAB_OUT,
-			seletor => SELETOR_ULA,
-			saida => SIG_ULA_OUT,
-			saida_flag_zero => SIG_SAIDA_FLAGZ_ULA
+			entradaB	=> SIG_MUX_ULAB_OUT,
+			sel_mux	=> SELETOR_ULA,
+			inverteB	=> ULA_INVERTEB,
+			resultado => SIG_ULA_OUT,
+			flagZero	=> SIG_SAIDA_FLAGZ_ULA
 		);
+
+--ULA : entity work.ULASomaSub generic map(larguraDados => 32)
+--		port map (
+--			entradaA => SIG_BAN_OUT_REGA,
+--			entradaB => SIG_MUX_ULAB_OUT,
+--			seletor => SELETOR_ULA,
+--			saida => SIG_ULA_OUT,
+--			saida_flag_zero => SIG_SAIDA_FLAGZ_ULA
+--		);
 		
 EXTENSOR : entity work.extensorSinalGenerico generic map(larguraDadoEntrada => 16, larguraDadoSaida => 32)
 		port map(
