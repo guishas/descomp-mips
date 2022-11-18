@@ -1,5 +1,5 @@
 Archive Project report for mips
-Wed Nov 02 15:58:46 2022
+Fri Nov 18 14:59:05 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -36,9 +36,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Wed Nov 02 15:58:46 2022 ;
+; Archive Project Status ; Successful - Fri Nov 18 14:59:05 2022 ;
 ; Revision Name          ; mips                                  ;
-; Top-level Entity Name  ; mips                                  ;
+; Top-level Entity Name  ; ULA                                   ;
 ; Family                 ; Cyclone V                             ;
 +------------------------+---------------------------------------+
 
@@ -61,7 +61,7 @@ Info: Generated report 'mips.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4818 megabytes
-    Info: Processing ended: Wed Nov 02 15:58:46 2022
+    Info: Processing ended: Fri Nov 18 14:59:05 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
@@ -71,17 +71,15 @@ Info: Quartus Prime Shell was successful. 0 errors, 1 warning
 +--------------------------------------------------------------+
 ; File Name                                                    ;
 +--------------------------------------------------------------+
-; bancoReg.vhd                                                 ;
 ; c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf ;
 ; mips.qpf                                                     ;
 ; mips.qsf                                                     ;
-; mips.vhd                                                     ;
-; RAM.vhd                                                      ;
-; registradorGenerico.vhd                                      ;
-; ROM.vhd                                                      ;
-; somaConstante.vhd                                            ;
-; ULASomaSub.vhd                                               ;
-; Waveform.vwf                                                 ;
+; muxGenerico2x1_1bit.vhd                                      ;
+; muxGenerico4x1 _1bit.vhd                                     ;
+; somadorULA.vhd                                               ;
+; ULA.vhd                                                      ;
+; ULA_1bit.vhd                                                 ;
+; Waveform1.vwf                                                ;
 +--------------------------------------------------------------+
 
 

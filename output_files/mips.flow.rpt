@@ -1,5 +1,5 @@
 Flow report for mips
-Wed Nov 02 15:55:30 2022
+Fri Nov 18 14:53:25 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Nov 02 15:55:30 2022       ;
+; Flow Status                     ; Successful - Fri Nov 18 14:53:25 2022       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; mips                                        ;
-; Top-level Entity Name           ; mips                                        ;
+; Top-level Entity Name           ; ULA                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 30                                          ;
-; Total pins                      ; 70                                          ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 102                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/28/2022 15:09:24 ;
+; Start date & time ; 11/18/2022 14:47:49 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mips                ;
 +-------------------+---------------------+
@@ -79,15 +79,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 167690722683441.166698056423636        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 229310348643299.166879366914700        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; ULA         ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; ULA         ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; ULA         ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; ULA                                    ; mips          ; --          ; --         ;
 ; VHDL_INPUT_VERSION                  ; VHDL_2008                              ; VHDL_1993     ; --          ; --         ;
 ; VHDL_SHOW_LMF_MAPPING_MESSAGES      ; Off                                    ; --            ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
@@ -98,14 +99,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 4844 MB             ; 00:00:28                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4712 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4715 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4711 MB             ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4844 MB             ; 00:00:22                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4712 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4716 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4712 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4716 MB             ; 00:00:01                           ;
-; Total                ; 00:00:14     ; --                      ; --                  ; 00:00:34                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4716 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4716 MB             ; 00:00:01                           ;
+; Total                ; 00:00:15     ; --                      ; --                  ; 00:00:28                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -114,9 +115,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; Rafael           ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Rafael           ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Rafael           ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-9AAO0N5  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-9AAO0N5  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-9AAO0N5  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-9AAO0N5  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-9AAO0N5  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-9AAO0N5  ; Windows 10 ; 10.0       ; x86_64         ;
@@ -128,11 +129,11 @@ https://fpgasoftware.intel.com/eula.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source=C:/insper/descomp/descomp-mips/Waveform.vwf --testbench_file=C:/insper/descomp/descomp-mips/simulation/qsim/Waveform.vwf.vht
-quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/insper/descomp/descomp-mips/simulation/qsim/ mips -c mips
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source=C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform.vwf --testbench_file=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source=C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform1.vwf --testbench_file=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/Waveform1.vwf.vht
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/ mips -c mips
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source=C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform.vwf --testbench_file=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source=C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform1.vwf --testbench_file=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/ mips -c mips
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source=C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform1.vwf --testbench_file=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/Waveform1.vwf.vht
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/intelFPGA_lite/20.1/projetos/entrega-mips/simulation/qsim/ mips -c mips
 
 

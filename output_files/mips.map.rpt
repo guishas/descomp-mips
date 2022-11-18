@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips
-Fri Oct 28 11:46:28 2022
+Fri Nov 18 14:47:59 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,17 +14,41 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |mips
- 10. Parameter Settings for User Entity Instance: registradorGenerico:PC
- 11. Parameter Settings for User Entity Instance: somaConstante:INCREMENTA_PC
- 12. Parameter Settings for User Entity Instance: ROM:ROM
- 13. Parameter Settings for User Entity Instance: bancoReg:BANREG
- 14. Parameter Settings for User Entity Instance: ULASomaSub:ULA
- 15. Port Connectivity Checks: "ROM:ROM"
- 16. Port Connectivity Checks: "registradorGenerico:PC"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Port Connectivity Checks: "ULA_1bit:ULA_BIT31"
+ 11. Port Connectivity Checks: "ULA_1bit:ULA_BIT30"
+ 12. Port Connectivity Checks: "ULA_1bit:ULA_BIT29"
+ 13. Port Connectivity Checks: "ULA_1bit:ULA_BIT28"
+ 14. Port Connectivity Checks: "ULA_1bit:ULA_BIT27"
+ 15. Port Connectivity Checks: "ULA_1bit:ULA_BIT26"
+ 16. Port Connectivity Checks: "ULA_1bit:ULA_BIT25"
+ 17. Port Connectivity Checks: "ULA_1bit:ULA_BIT24"
+ 18. Port Connectivity Checks: "ULA_1bit:ULA_BIT23"
+ 19. Port Connectivity Checks: "ULA_1bit:ULA_BIT22"
+ 20. Port Connectivity Checks: "ULA_1bit:ULA_BIT21"
+ 21. Port Connectivity Checks: "ULA_1bit:ULA_BIT20"
+ 22. Port Connectivity Checks: "ULA_1bit:ULA_BIT19"
+ 23. Port Connectivity Checks: "ULA_1bit:ULA_BIT18"
+ 24. Port Connectivity Checks: "ULA_1bit:ULA_BIT17"
+ 25. Port Connectivity Checks: "ULA_1bit:ULA_BIT16"
+ 26. Port Connectivity Checks: "ULA_1bit:ULA_BIT15"
+ 27. Port Connectivity Checks: "ULA_1bit:ULA_BIT14"
+ 28. Port Connectivity Checks: "ULA_1bit:ULA_BIT13"
+ 29. Port Connectivity Checks: "ULA_1bit:ULA_BIT12"
+ 30. Port Connectivity Checks: "ULA_1bit:ULA_BIT11"
+ 31. Port Connectivity Checks: "ULA_1bit:ULA_BIT10"
+ 32. Port Connectivity Checks: "ULA_1bit:ULA_BIT9"
+ 33. Port Connectivity Checks: "ULA_1bit:ULA_BIT8"
+ 34. Port Connectivity Checks: "ULA_1bit:ULA_BIT7"
+ 35. Port Connectivity Checks: "ULA_1bit:ULA_BIT6"
+ 36. Port Connectivity Checks: "ULA_1bit:ULA_BIT5"
+ 37. Port Connectivity Checks: "ULA_1bit:ULA_BIT4"
+ 38. Port Connectivity Checks: "ULA_1bit:ULA_BIT3"
+ 39. Port Connectivity Checks: "ULA_1bit:ULA_BIT2"
+ 40. Port Connectivity Checks: "ULA_1bit:ULA_BIT1"
+ 41. Post-Synthesis Netlist Statistics for Top Partition
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
 
 
 
@@ -51,14 +75,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Oct 28 11:46:28 2022       ;
+; Analysis & Synthesis Status     ; Successful - Fri Nov 18 14:47:59 2022       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; mips                                        ;
-; Top-level Entity Name           ; mips                                        ;
+; Top-level Entity Name           ; ULA                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 0                                           ;
-; Total pins                      ; 7                                           ;
+; Total pins                      ; 102                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -77,7 +101,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CEBA4F23C7        ;                    ;
-; Top-level entity name                                                           ; mips               ; mips               ;
+; Top-level entity name                                                           ; ULA                ; mips               ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
 ; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
@@ -175,54 +199,170 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                  ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                           ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
-; ULASomaSub.vhd                   ; yes             ; User VHDL File  ; C:/insper/descomp/descomp-mips/ULASomaSub.vhd          ;         ;
-; bancoReg.vhd                     ; yes             ; User VHDL File  ; C:/insper/descomp/descomp-mips/bancoReg.vhd            ;         ;
-; somaConstante.vhd                ; yes             ; User VHDL File  ; C:/insper/descomp/descomp-mips/somaConstante.vhd       ;         ;
-; registradorGenerico.vhd          ; yes             ; User VHDL File  ; C:/insper/descomp/descomp-mips/registradorGenerico.vhd ;         ;
-; ROM.vhd                          ; yes             ; User VHDL File  ; C:/insper/descomp/descomp-mips/ROM.vhd                 ;         ;
-; mips.vhd                         ; yes             ; User VHDL File  ; C:/insper/descomp/descomp-mips/mips.vhd                ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; ULA_1bit.vhd                     ; yes             ; User VHDL File  ; C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA_1bit.vhd             ;         ;
+; ULA.vhd                          ; yes             ; User VHDL File  ; C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA.vhd                  ;         ;
+; somadorULA.vhd                   ; yes             ; User VHDL File  ; C:/intelFPGA_lite/20.1/projetos/entrega-mips/somadorULA.vhd           ;         ;
+; muxGenerico4x1 _1bit.vhd         ; yes             ; User VHDL File  ; C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico4x1 _1bit.vhd ;         ;
+; muxGenerico2x1_1bit.vhd          ; yes             ; User VHDL File  ; C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico2x1_1bit.vhd  ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimate of Logic utilization (ALMs needed) ; 0        ;
-;                                             ;          ;
-; Combinational ALUT usage for logic          ; 0        ;
-;     -- 7 input functions                    ; 0        ;
-;     -- 6 input functions                    ; 0        ;
-;     -- 5 input functions                    ; 0        ;
-;     -- 4 input functions                    ; 0        ;
-;     -- <=3 input functions                  ; 0        ;
-;                                             ;          ;
-; Dedicated logic registers                   ; 0        ;
-;                                             ;          ;
-; I/O pins                                    ; 7        ;
-;                                             ;          ;
-; Total DSP Blocks                            ; 0        ;
-;                                             ;          ;
-; Maximum fan-out node                        ; CLOCK_50 ;
-; Maximum fan-out                             ; 1        ;
-; Total fan-out                               ; 7        ;
-; Average fan-out                             ; 0.50     ;
-+---------------------------------------------+----------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 75             ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 120            ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 29             ;
+;     -- 5 input functions                    ; 28             ;
+;     -- 4 input functions                    ; 15             ;
+;     -- <=3 input functions                  ; 48             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 102            ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; inverteB~input ;
+; Maximum fan-out                             ; 38             ;
+; Total fan-out                               ; 613            ;
+; Average fan-out                             ; 1.89           ;
++---------------------------------------------+----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |mips                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 7    ; 0            ; |mips               ; mips        ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                 ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
+; |ULA                                      ; 120 (12)            ; 0 (0)                     ; 0                 ; 0          ; 102  ; 0            ; |ULA                                                      ; ULA                 ; work         ;
+;    |ULA_1bit:ULA_BIT0|                    ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT0                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT0|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT0|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT10|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT10                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT10|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT10|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT10|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT11|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT11                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT11|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT11|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT11|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT12|                   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT12                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT12|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT12|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;    |ULA_1bit:ULA_BIT13|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT13                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT13|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT13|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT13|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT14|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT14                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT14|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT14|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT14|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT15|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT15                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT15|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT15|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT15|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT16|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT16                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT16|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT16|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT16|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT17|                   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT17                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT17|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT17|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;    |ULA_1bit:ULA_BIT18|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT18                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT18|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT18|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT18|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT19|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT19                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT19|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT19|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT19|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT1|                    ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT1                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT1|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT1|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT20|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT20                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT20|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT20|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT20|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT21|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT21                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT21|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT21|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT21|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT22|                   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT22                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT22|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT22|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;    |ULA_1bit:ULA_BIT23|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT23                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT23|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT23|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT23|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT24|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT24                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT24|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT24|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT24|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT25|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT25                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT25|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT25|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT25|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT26|                   ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT26                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT26|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT26|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT26|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT27|                   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT27                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT27|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT27|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;    |ULA_1bit:ULA_BIT28|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT28                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT28|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT28|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT28|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT29|                   ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT29                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT29|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT29|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT29|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT2|                    ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT2                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT2|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT2|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT2|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT30|                   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT30                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT30|muxGenerico2x1_1bit:MUX_ENTB      ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT30|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;    |ULA_1bit:ULA_BIT31|                   ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT31                                   ; ULA_1bit            ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT31|muxGenerico4x1_1bit:MUX_RESULTADO ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT31|somadorULA:SOMADOR                ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT3|                    ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT3                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT3|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT3|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT3|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT4|                    ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT4                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT4|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT4|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT5|                    ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT5                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT5|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT5|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT5|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT6|                    ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT6                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT6|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT6|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT6|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT7|                    ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT7                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT7|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT7|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;    |ULA_1bit:ULA_BIT8|                    ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT8                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico2x1_1bit:MUX_ENTB|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT8|muxGenerico2x1_1bit:MUX_ENTB       ; muxGenerico2x1_1bit ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT8|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT8|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
+;    |ULA_1bit:ULA_BIT9|                    ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT9                                    ; ULA_1bit            ; work         ;
+;       |muxGenerico4x1_1bit:MUX_RESULTADO| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT9|muxGenerico4x1_1bit:MUX_RESULTADO  ; muxGenerico4x1_1bit ; work         ;
+;       |somadorULA:SOMADOR|                ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|ULA_1bit:ULA_BIT9|somadorULA:SOMADOR                 ; somadorULA          ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -241,100 +381,311 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |mips ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; simulacao      ; true  ; Enumerated                                  ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |ULA|ULA_1bit:ULA_BIT8|muxGenerico4x1_1bit:MUX_RESULTADO|saida_MUX ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: registradorGenerico:PC ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; larguradados   ; 32    ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT31" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
 
 
-+--------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: somaConstante:INCREMENTA_PC ;
-+----------------+-------+-------------------------------------------------+
-; Parameter Name ; Value ; Type                                            ;
-+----------------+-------+-------------------------------------------------+
-; larguradados   ; 32    ; Signed Integer                                  ;
-; constante      ; 32    ; Signed Integer                                  ;
-+----------------+-------+-------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT30" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
 
 
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ROM:ROM ;
-+-----------------+-------+----------------------------+
-; Parameter Name  ; Value ; Type                       ;
-+-----------------+-------+----------------------------+
-; datawidth       ; 32    ; Signed Integer             ;
-; addrwidth       ; 32    ; Signed Integer             ;
-; memoryaddrwidth ; 6     ; Signed Integer             ;
-+-----------------+-------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT29" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
 
 
-+--------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bancoReg:BANREG ;
-+---------------------+-------+--------------------------------+
-; Parameter Name      ; Value ; Type                           ;
-+---------------------+-------+--------------------------------+
-; larguradados        ; 32    ; Signed Integer                 ;
-; larguraendbancoregs ; 5     ; Signed Integer                 ;
-+---------------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT28" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
 
 
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ULASomaSub:ULA ;
-+----------------+-------+------------------------------------+
-; Parameter Name ; Value ; Type                               ;
-+----------------+-------+------------------------------------+
-; larguradados   ; 32    ; Signed Integer                     ;
-+----------------+-------+------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT27" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ROM:ROM"                                                                                    ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; dado[31..26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; dado[10..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT26" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
 
 
-+----------------------------------------------------+
-; Port Connectivity Checks: "registradorGenerico:PC" ;
-+--------+-------+----------+------------------------+
-; Port   ; Type  ; Severity ; Details                ;
-+--------+-------+----------+------------------------+
-; enable ; Input ; Info     ; Stuck at VCC           ;
-; rst    ; Input ; Info     ; Stuck at GND           ;
-+--------+-------+----------+------------------------+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT25" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT24" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT23" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT22" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT21" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT20" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT19" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT18" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT17" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT16" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT15" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT14" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT13" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT12" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT11" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT10" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; slt  ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT9" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT8" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT7" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT6" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT5" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT4" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT3" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT2" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "ULA_1bit:ULA_BIT1" ;
++------+-------+----------+---------------------+
+; Port ; Type  ; Severity ; Details             ;
++------+-------+----------+---------------------+
+; slt  ; Input ; Info     ; Stuck at GND        ;
++------+-------+----------+---------------------+
 
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-------------------+---------------------------------+
-; Type              ; Count                           ;
-+-------------------+---------------------------------+
-; boundary_port     ; 7                               ;
-;                   ;                                 ;
-; Max LUT depth     ; 0.00                            ;
-; Average LUT depth ; 0.00                            ;
-+-------------------+---------------------------------+
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 120                         ;
+;     normal            ; 120                         ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 28                          ;
+;         6 data inputs ; 29                          ;
+; boundary_port         ; 102                         ;
+;                       ;                             ;
+; Max LUT depth         ; 15.00                       ;
+; Average LUT depth     ; 10.96                       ;
++-----------------------+-----------------------------+
 
 
 +-------------------------------+
@@ -342,7 +693,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -352,55 +703,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Oct 28 11:46:13 2022
+    Info: Processing started: Fri Nov 18 14:47:49 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file ulasomasub.vhd
-    Info (12022): Found design unit 1: ULASomaSub-comportamento File: C:/insper/descomp/descomp-mips/ULASomaSub.vhd Line: 14
-    Info (12023): Found entity 1: ULASomaSub File: C:/insper/descomp/descomp-mips/ULASomaSub.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file bancoreg.vhd
-    Info (12022): Found design unit 1: bancoReg-comportamento File: C:/insper/descomp/descomp-mips/bancoReg.vhd Line: 30
-    Info (12023): Found entity 1: bancoReg File: C:/insper/descomp/descomp-mips/bancoReg.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file somaconstante.vhd
-    Info (12022): Found design unit 1: somaConstante-comportamento File: C:/insper/descomp/descomp-mips/somaConstante.vhd Line: 16
-    Info (12023): Found entity 1: somaConstante File: C:/insper/descomp/descomp-mips/somaConstante.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file registradorgenerico.vhd
-    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/insper/descomp/descomp-mips/registradorGenerico.vhd Line: 15
-    Info (12023): Found entity 1: registradorGenerico File: C:/insper/descomp/descomp-mips/registradorGenerico.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
-    Info (12022): Found design unit 1: RAM-assincrona File: C:/insper/descomp/descomp-mips/RAM.vhd Line: 18
-    Info (12023): Found entity 1: RAM File: C:/insper/descomp/descomp-mips/RAM.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
-    Info (12022): Found design unit 1: ROM-assincrona File: C:/insper/descomp/descomp-mips/ROM.vhd Line: 17
-    Info (12023): Found entity 1: ROM File: C:/insper/descomp/descomp-mips/ROM.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file mips.vhd
-    Info (12022): Found design unit 1: mips-arquitetura File: C:/insper/descomp/descomp-mips/mips.vhd Line: 19
-    Info (12023): Found entity 1: mips File: C:/insper/descomp/descomp-mips/mips.vhd Line: 5
-Info (12127): Elaborating entity "mips" for the top level hierarchy
-Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 45
-Info (12128): Elaborating entity "somaConstante" for hierarchy "somaConstante:INCREMENTA_PC" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 54
-Info (12128): Elaborating entity "ROM" for hierarchy "ROM:ROM" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 60
-Warning (10541): VHDL Signal Declaration warning at ROM.vhd(20): used implicit default value for signal "memROM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/insper/descomp/descomp-mips/ROM.vhd Line: 20
-Info (12128): Elaborating entity "bancoReg" for hierarchy "bancoReg:BANREG" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 66
-Info (12128): Elaborating entity "ULASomaSub" for hierarchy "ULASomaSub:ULA" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 78
+Info (12021): Found 2 design units, including 1 entities, in source file ula_1bit.vhd
+    Info (12022): Found design unit 1: ULA_1bit-arquitetura File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA_1bit.vhd Line: 19
+    Info (12023): Found entity 1: ULA_1bit File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA_1bit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ULA-arquitetura File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA.vhd Line: 19
+    Info (12023): Found entity 1: ULA File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file somadorula.vhd
+    Info (12022): Found design unit 1: somadorULA-arquitetura File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/somadorULA.vhd Line: 16
+    Info (12023): Found entity 1: somadorULA File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/somadorULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico4x1 _1bit.vhd
+    Info (12022): Found design unit 1: muxGenerico4x1_1bit-comportamento File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico4x1 _1bit.vhd Line: 12
+    Info (12023): Found entity 1: muxGenerico4x1_1bit File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico4x1 _1bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2x1_1bit.vhd
+    Info (12022): Found design unit 1: muxGenerico2x1_1bit-comportamento File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico2x1_1bit.vhd Line: 12
+    Info (12023): Found entity 1: muxGenerico2x1_1bit File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico2x1_1bit.vhd Line: 4
+Info (12127): Elaborating entity "ULA" for the top level hierarchy
+Info (12128): Elaborating entity "ULA_1bit" for hierarchy "ULA_1bit:ULA_BIT0" File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA.vhd Line: 29
+Info (12128): Elaborating entity "muxGenerico2x1_1bit" for hierarchy "ULA_1bit:ULA_BIT0|muxGenerico2x1_1bit:MUX_ENTB" File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA_1bit.vhd Line: 26
+Info (12128): Elaborating entity "somadorULA" for hierarchy "ULA_1bit:ULA_BIT0|somadorULA:SOMADOR" File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA_1bit.vhd Line: 34
+Info (12128): Elaborating entity "muxGenerico4x1_1bit" for hierarchy "ULA_1bit:ULA_BIT0|muxGenerico4x1_1bit:MUX_RESULTADO" File: C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA_1bit.vhd Line: 43
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 7 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK_50" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 10
-    Warning (15610): No output dependent on input pin "HABILITA_BANREG" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 11
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 12
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 12
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 12
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 12
-    Warning (15610): No output dependent on input pin "OPERACAO_ULA" File: C:/insper/descomp/descomp-mips/mips.vhd Line: 13
-Info (21057): Implemented 7 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 7 input pins
-    Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4852 megabytes
-    Info: Processing ended: Fri Oct 28 11:46:28 2022
-    Info: Elapsed time: 00:00:15
+Info (21057): Implemented 222 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 35 output pins
+    Info (21061): Implemented 120 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4844 megabytes
+    Info: Processing ended: Fri Nov 18 14:47:59 2022
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:22
 
 
