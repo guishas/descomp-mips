@@ -4,12 +4,14 @@ use ieee.numeric_std.all;
 
 entity ULA is
   port (  
-		entradaA 	: in std_logic_vector(32 DOWNTO 0);
-		entradaB		: in std_logic_vector(32 DOWNTO 0);
+		entradaA 	: in std_logic_vector(31 DOWNTO 0);
+		entradaB		: in std_logic_vector(31 DOWNTO 0);
 		sel_mux		: in std_logic_vector(1 DOWNTO 0);
 		inverteB		: in std_logic;
-		resultado	: out std_logic_vector(32 DOWNTO 0);
-		flagZero		: out std_logic
+		resultado	: out std_logic_vector(31 DOWNTO 0);
+		flagZero		: out std_logic;
+		overflow		: out std_logic;
+		somadorBit31 : out std_logic
   );
   
 end entity;
@@ -20,7 +22,7 @@ architecture arquitetura of ULA is
 	signal carryOUT8, carryOUT9, carryOUT10, carryOUT11, carryOUT12, carryOUT13, carryOUT14, carryOUT15 	: std_logic;
 	signal carryOUT16, carryOUT17, carryOUT18, carryOUT19, carryOUT20, carryOUT21, carryOUT22, carryOUT23	: std_logic;
 	signal carryOUT24, carryOUT25, carryOUT26, carryOUT27, carryOUT28, carryOUT29, carryOUT30, carryOUT31 : std_logic;
-	signal somadorBit31 : std_logic;
+	signal SLT_inverteB : std_logic;
 	
 begin	
 	
@@ -408,8 +410,12 @@ ULA_BIT31 : entity work.ULA_1bit
 			carryOUT		=> carryOUT31,
 			resultado	=> resultado(31)
 		);
+		
+overflow <= carryOUT31 xor carryOUT30;
 
-somadorBit31 <= carryOUT30 xor (entradaA(31) xor entradaB(31)); 
+SLT_inverteB <= not entradaB(31) when inverteB = '1' else entradaB(31);
+		
+somadorBit31 <= carryOUT30 xor (entradaA(31) xor SLT_inverteB); 
 		
 flagZero <= '1' when resultado = x"00000000" else '0';		
 
