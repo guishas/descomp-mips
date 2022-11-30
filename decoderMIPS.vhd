@@ -31,8 +31,8 @@ ULA_CTRL_FUNCT(0) <= '1' when (funct = 6x"25" OR funct = 6x"2A") else '0';
 
 -- Decoder opcode p/ ULACtrl
 ULA_CTRL_OPCODE(3) <= '0';
-ULA_CTRL_OPCODE(2) <= '1' when (opcode = 6x"04" OR opcode = 6x"0A") else '0';
-ULA_CTRL_OPCODE(1) <= '1' when (opcode = 6x"04" OR opcode = 6x"2B" OR opcode = 6x"23" OR opcode = 6x"0A" OR opcode = 6x"08") else '0';
+ULA_CTRL_OPCODE(2) <= '1' when (opcode = 6x"04" OR opcode = 6x"0A" OR opcode = 6x"05") else '0';
+ULA_CTRL_OPCODE(1) <= '1' when (opcode = 6x"04" OR opcode = 6x"2B" OR opcode = 6x"23" OR opcode = 6x"0A" OR opcode = 6x"08" OR opcode = 6x"05") else '0';
 ULA_CTRL_OPCODE(0) <= '1' when (opcode = 6x"0A" OR opcode = 6x"0D") else '0';
 
 MUX_ULA_CTRL : entity work.muxGenerico2x1 generic map(larguraDados => 4)
