@@ -1,22 +1,38 @@
 Quartus Prime Archive log --	C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qarlog
 
 Archive:	C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qar
-Date:		Wed Nov 02 15:58:46 2022
+Date:		Tue Dec 06 17:35:27 2022
 Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 	=========== Files Selected: ===========
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/LUI.vhd
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/RAM.vhd
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/ROM.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/Shifter.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA.vhd
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULASomaSub.vhd
-C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform.vwf
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/ULA_1bit.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/Waveform1.vwf
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/bancoReg.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/conversorHex7Seg.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/decoderFD.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/decoderMIPS.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/extensorSinalGenerico.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/initROM.mif
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/initROMFull.mif
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qpf
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.qsf
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/mips.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico2x1.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico2x1_1bit.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico4x1.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/muxGenerico4x1_1bit.vhd
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/registradorGenerico.vhd
 C:/intelFPGA_lite/20.1/projetos/entrega-mips/somaConstante.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/somaSinais.vhd
+C:/intelFPGA_lite/20.1/projetos/entrega-mips/somadorULA.vhd
 c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
-	======= Total: 11 files to archive =======
+	======= Total: 27 files to archive =======
 
 	================ Status: ===============
 All files archived successfully.
