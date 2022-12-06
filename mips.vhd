@@ -17,7 +17,7 @@ entity mips is
 		HEX4					: out std_logic_vector(6 DOWNTO 0);
 		HEX5					: out std_logic_vector(6 DOWNTO 0);
 		LEDR					: out std_logic_vector(9 DOWNTO 0);
-		PALAVRA				: out std_logic_vector(12 DOWNTO 0);
+		PALAVRA				: out std_logic_vector(13 DOWNTO 0);
 		PC_OUT				: out std_logic_vector(31 DOWNTO 0);
 		ULA_OUT 				: out std_logic_vector(31 DOWNTO 0)
   );
@@ -39,7 +39,7 @@ architecture arquitetura of mips is
 	signal SIG_RT			 			: std_logic_vector(4 DOWNTO 0);
 	signal SIG_MUXBANREG_OUT		: std_logic_vector(4 DOWNTO 0);
 	signal SIG_FUNCT					: std_logic_vector(5 DOWNTO 0);
-	signal PALAVRA_CONTROLE			: std_logic_vector(12 DOWNTO 0);
+	signal PALAVRA_CONTROLE			: std_logic_vector(13 DOWNTO 0);
 	signal SIG_IMEDIATO				: std_logic_vector(15 DOWNTO 0);
 	signal SIG_IMEDIATO_EXTENDIDO	: std_logic_vector(31 DOWNTO 0);
 	signal SIG_INCPC_OUT 			: std_logic_vector(31 DOWNTO 0);
@@ -47,6 +47,7 @@ architecture arquitetura of mips is
 	signal SIG_MUX_BEQ_OUT 			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_MUX_PROXPC_OUT 		: std_logic_vector(31 DOWNTO 0);
 	signal SIG_MUX_ULAB_OUT			: std_logic_vector(31 DOWNTO 0);
+	signal SIG_MUX_ULA_OUT			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_MUXPC_OUT				: std_logic_vector(31 DOWNTO 0);
 	signal SIG_PC_OUT      			: std_logic_vector(31 DOWNTO 0);
 	signal SIG_ROM_OUT     			: std_logic_vector(31 DOWNTO 0);
@@ -136,7 +137,7 @@ MUX_JMP : entity work.muxGenerico2x1 generic map(larguraDados => 32)
 
 MUX_ULA_MEM : entity work.muxGenerico4x1 generic map(larguraDados => 32)
 		port map(
-			entradaA_MUX => SIG_ULA_OUT,
+			entradaA_MUX => SIG_MUX_ULA_OUT,
 			entradaB_MUX => SIG_RAM_OUT,
 			entradaC_MUX => SIG_INCPC_OUT,
 			entradaD_MUX => SIG_LUI_OUT,
@@ -153,7 +154,7 @@ ROM : entity work.ROM generic map(dataWidth => 32, addrWidth => 32, memoryAddrWi
 RAM : entity work.RAM generic map(dataWidth => 32, addrWidth => 32, memoryAddrWidth => 6)
 		port map(
 			clk => SIG_CLK,
-			Endereco => SIG_ULA_OUT,
+			Endereco => SIG_MUX_ULA_OUT,
 			Dado_in => SIG_BAN_OUT_REGB,
 			Dado_out => SIG_RAM_OUT,
 			we => PALAVRA_CONTROLE(0),
@@ -192,6 +193,14 @@ ULA : entity work.ULA
 			flagZero		=> SIG_SAIDA_FLAGZ_ULA
 		);
 		
+MUX_ULA_OUT : entity work.muxGenerico2x1 generic map(larguraDados => 32)
+		port map(
+			entradaA_MUX => SIG_ULA_OUT,
+			entradaB_MUX => not SIG_ULA_OUT,
+			seletor_MUX => PALAVRA_CONTROLE(13),
+			saida_MUX => SIG_MUX_ULA_OUT
+		);
+		
 MUX_FLAGZ : entity work.muxGenerico2x1_1bit
 		port map(
 			entradaA_MUX => not SIG_SAIDA_FLAGZ_ULA,
@@ -224,7 +233,7 @@ DECODER_INSTR : entity work.decoderMIPS
 MUX_TESTE : entity work.muxGenerico2x1 generic map(larguraDados => 32)
 		port map(
 			entradaA_MUX => SIG_PC_OUT,
-			entradaB_MUX => SIG_ULA_OUT,
+			entradaB_MUX => SIG_MUX_ULA_OUT,
 			seletor_MUX => SW(0),
 			saida_MUX => SIG_MUX_TESTE_OUT
 		);
@@ -298,7 +307,7 @@ SIG_FUNCT <= SIG_ROM_OUT(5 DOWNTO 0);
 SIG_IMEDIATO <= SIG_ROM_OUT(15 DOWNTO 0);
 
 PC_OUT <= SIG_PC_OUT;
-ULA_OUT <= SIG_ULA_OUT;
+ULA_OUT <= SIG_MUX_ULA_OUT;
 PALAVRA <= PALAVRA_CONTROLE;
 
 end architecture;

@@ -14,6 +14,7 @@ architecture arquitetura of decoderFD is
 
 	constant INST_AND : std_logic_vector(5 downto 0) := "000000";
 	constant INST_OR  : std_logic_vector(5 downto 0) := "000000";
+	constant INST_NOR	: std_logic_vector(5 downto 0) := "000000";
 	constant ADD 		: std_logic_vector(5 downto 0) := "000000";
 	constant SUB 		: std_logic_vector(5 downto 0) := "000000";
 	constant SLT 		: std_logic_vector(5 downto 0) := "000000";
@@ -45,13 +46,16 @@ begin
 	
 	MUX_PC_BEQ 	<= '1' when (opcode = JMP OR opcode = JAL) else '0';
 	
-	MUX_RT_RD 	<= "01" when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT) else
+	MUX_RT_RD 	<= "01" when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT OR opcode = INST_NOR) else
 						"10" when (opcode = JAL) else
 						"00";
 	
 	ORIANDI		<= '1' when (opcode = ORI) else '0';
-	HAB_REG 		<= '1' when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT OR opcode = LW OR opcode = JAL OR opcode = SLTI OR opcode = ORI OR opcode = ANDI OR opcode = ADDI OR opcode = LUI) else '0';
-	MUX_RT_IM 	<= '1' when (opcode = LW OR opcode = SW OR opcode = SLTI OR opcode = ORI OR opcode = ANDI OR opcode = ADDI) else '0';
+	HAB_REG 		<= '1' when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT 
+										OR opcode = LW OR opcode = JAL OR opcode = SLTI OR opcode = ORI OR opcode = ANDI 
+										OR opcode = ADDI OR opcode = LUI OR opcode = INST_NOR) else '0';
+	MUX_RT_IM 	<= '1' when (opcode = LW OR opcode = SW OR opcode = SLTI OR opcode = ORI 
+										OR opcode = ANDI OR opcode = ADDI) else '0';
 	
 	MUX_ULA_MEM <= "11" when (opcode = LUI) else
 						"01" when (opcode = LW) else
@@ -63,6 +67,7 @@ begin
 	RD_MEM 		<= '1' when (opcode = LW) else '0';
 	WR_MEM 		<= '1' when (opcode = SW) else '0';
 	
-	tipoR 		<= '1' when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT OR opcode = JR) else '0';
+	tipoR 		<= '1' when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB 
+										OR opcode = SLT OR opcode = JR OR opcode = INST_NOR) else '0';
 
 end architecture;
