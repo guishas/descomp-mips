@@ -17,9 +17,10 @@ entity mips is
 		HEX4					: out std_logic_vector(6 DOWNTO 0);
 		HEX5					: out std_logic_vector(6 DOWNTO 0);
 		LEDR					: out std_logic_vector(9 DOWNTO 0);
-		PALAVRA				: out std_logic_vector(13 DOWNTO 0);
+		PALAVRA				: out std_logic_vector(15 DOWNTO 0);
 		PC_OUT				: out std_logic_vector(31 DOWNTO 0);
-		ULA_OUT 				: out std_logic_vector(31 DOWNTO 0)
+		ULA_OUT 				: out std_logic_vector(31 DOWNTO 0);
+		BANCO_IN 			: out std_logic_vector(31 DOWNTO 0)
   );
 	
 end entity;
@@ -39,7 +40,8 @@ architecture arquitetura of mips is
 	signal SIG_RT			 			: std_logic_vector(4 DOWNTO 0);
 	signal SIG_MUXBANREG_OUT		: std_logic_vector(4 DOWNTO 0);
 	signal SIG_FUNCT					: std_logic_vector(5 DOWNTO 0);
-	signal PALAVRA_CONTROLE			: std_logic_vector(13 DOWNTO 0);
+	signal SIG_SHAMT					: std_logic_vector(4 DOWNTO 0);
+	signal PALAVRA_CONTROLE			: std_logic_vector(15 DOWNTO 0);
 	signal SIG_IMEDIATO				: std_logic_vector(15 DOWNTO 0);
 	signal SIG_IMEDIATO_EXTENDIDO	: std_logic_vector(31 DOWNTO 0);
 	signal SIG_INCPC_OUT 			: std_logic_vector(31 DOWNTO 0);
@@ -58,6 +60,8 @@ architecture arquitetura of mips is
 	signal SIG_MUX_ULA_MEM_OUT		: std_logic_vector(31 DOWNTO 0);
 	signal SIG_MUX_TESTE_OUT		: std_logic_vector(31 DOWNTO 0);
 	signal SIG_LUI_OUT				: std_logic_vector(31 DOWNTO 0);
+	signal SIG_SHIFTER_OUT			: std_logic_vector(31 DOWNTO 0);
+	signal SIG_MUX_SHIFTER_OUT		: std_logic_vector(31 DOWNTO 0);
 
 begin
 
@@ -168,7 +172,7 @@ BANREG : entity work.bancoReg generic map(larguraDados => 32, larguraEndBancoReg
 			enderecoA => SIG_RS,  
 			enderecoB => SIG_RT, 
 			enderecoC => SIG_MUXBANREG_OUT, 
-			dadoEscritaC => SIG_MUX_ULA_MEM_OUT,
+			dadoEscritaC => SIG_MUX_SHIFTER_OUT,
 			escreveC => PALAVRA_CONTROLE(7),
 			saidaA => SIG_BAN_OUT_REGA,
 			saidaB => SIG_BAN_OUT_REGB
@@ -199,6 +203,23 @@ MUX_ULA_OUT : entity work.muxGenerico2x1 generic map(larguraDados => 32)
 			entradaB_MUX => not SIG_ULA_OUT,
 			seletor_MUX => PALAVRA_CONTROLE(13),
 			saida_MUX => SIG_MUX_ULA_OUT
+		);
+		
+SHIFTER : entity work.Shifter generic map(larguraDados => 32)
+		port map(
+			ENTRADA => SIG_BAN_OUT_REGB,
+			SHAMT	=> SIG_SHAMT,
+			SIG_SLL => PALAVRA_CONTROLE(15), 
+			SIG_SRL => PALAVRA_CONTROLE(14),
+			SAIDA => SIG_SHIFTER_OUT
+		);
+		
+MUX_SHIFTER : entity work.muxGenerico2x1 generic map(larguraDados => 32)
+		port map(
+			entradaA_MUX => SIG_MUX_ULA_MEM_OUT,
+			entradaB_MUX => SIG_SHIFTER_OUT,
+			seletor_MUX => PALAVRA_CONTROLE(14) OR PALAVRA_CONTROLE(15),
+			saida_MUX => SIG_MUX_SHIFTER_OUT
 		);
 		
 MUX_FLAGZ : entity work.muxGenerico2x1_1bit
@@ -305,9 +326,11 @@ SIG_RS <= SIG_ROM_OUT(25 DOWNTO 21);
 SIG_RT <= SIG_ROM_OUT(20 DOWNTO 16);
 SIG_FUNCT <= SIG_ROM_OUT(5 DOWNTO 0);
 SIG_IMEDIATO <= SIG_ROM_OUT(15 DOWNTO 0);
+SIG_SHAMT <= SIG_ROM_OUT(10 DOWNTO 6);
 
 PC_OUT <= SIG_PC_OUT;
 ULA_OUT <= SIG_MUX_ULA_OUT;
 PALAVRA <= PALAVRA_CONTROLE;
+BANCO_IN <= SIG_MUX_SHIFTER_OUT;
 
 end architecture;

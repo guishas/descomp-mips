@@ -7,7 +7,7 @@ entity decoderMIPS is
 		opcode 	: in std_logic_vector(5 DOWNTO 0);
 		funct	 	: in std_logic_vector(5 DOWNTO 0);
 		ula_ctrl : out std_logic_vector(3 DOWNTO 0);
-		palavra	: out std_logic_vector(13 DOWNTO 0)
+		palavra	: out std_logic_vector(15 DOWNTO 0)
   );
   
 end entity;
@@ -17,6 +17,8 @@ architecture arquitetura of decoderMIPS is
 	signal TIPO_R				 	: std_logic;
 	signal IS_JR					: std_logic;
 	signal IS_NOR					: std_logic;
+	signal SIG_SLL					: std_logic;
+	signal SIG_SRL					: std_logic;
 	signal ULA_CTRL_FUNCT  		: std_logic_vector(3 DOWNTO 0);
 	signal ULA_CTRL_OPCODE 		: std_logic_vector(3 DOWNTO 0);
 	signal SAIDA_MUX_ULA_CTRL 	: std_logic_vector(3 DOWNTO 0);
@@ -54,8 +56,10 @@ CONTROL_UNIT : entity work.decoderFD
 	
 IS_JR <= '1' when (funct = 6x"08" AND TIPO_R = '1') else '0';
 IS_NOR <= '1' when (funct = 6x"27" AND TIPO_R = '1') else '0';
+SIG_SLL <= '1' when (funct = 6x"00" AND TIPO_R = '1') else '0';
+SIG_SRL <= '1' when (funct = 6x"02" AND TIPO_R = '1') else '0';
 
 ula_ctrl <= SAIDA_MUX_ULA_CTRL;
 	
-palavra <= IS_NOR & IS_JR & SAIDA_DECODER_FD;
+palavra <= SIG_SLL & SIG_SRL & IS_NOR & IS_JR & SAIDA_DECODER_FD;
 end architecture;

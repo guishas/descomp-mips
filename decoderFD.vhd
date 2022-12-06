@@ -18,6 +18,8 @@ architecture arquitetura of decoderFD is
 	constant ADD 		: std_logic_vector(5 downto 0) := "000000";
 	constant SUB 		: std_logic_vector(5 downto 0) := "000000";
 	constant SLT 		: std_logic_vector(5 downto 0) := "000000";
+	constant SIG_SLL 	: std_logic_vector(5 downto 0) := "000000";
+	constant SIG_SRL 	: std_logic_vector(5 downto 0) := "000000";
 	constant LW 		: std_logic_vector(5 downto 0) := "100011";
 	constant SW 		: std_logic_vector(5 downto 0) := "101011";
 	constant BEQ 		: std_logic_vector(5 downto 0) := "000100";
@@ -46,14 +48,15 @@ begin
 	
 	MUX_PC_BEQ 	<= '1' when (opcode = JMP OR opcode = JAL) else '0';
 	
-	MUX_RT_RD 	<= "01" when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT OR opcode = INST_NOR) else
+	MUX_RT_RD 	<= "01" when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT 
+										OR opcode = INST_NOR OR opcode = SIG_SLL OR opcode = SIG_SRL) else
 						"10" when (opcode = JAL) else
 						"00";
 	
 	ORIANDI		<= '1' when (opcode = ORI) else '0';
 	HAB_REG 		<= '1' when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB OR opcode = SLT 
 										OR opcode = LW OR opcode = JAL OR opcode = SLTI OR opcode = ORI OR opcode = ANDI 
-										OR opcode = ADDI OR opcode = LUI OR opcode = INST_NOR) else '0';
+										OR opcode = ADDI OR opcode = LUI OR opcode = INST_NOR OR opcode = SIG_SLL OR opcode = SIG_SRL) else '0';
 	MUX_RT_IM 	<= '1' when (opcode = LW OR opcode = SW OR opcode = SLTI OR opcode = ORI 
 										OR opcode = ANDI OR opcode = ADDI) else '0';
 	
@@ -68,6 +71,6 @@ begin
 	WR_MEM 		<= '1' when (opcode = SW) else '0';
 	
 	tipoR 		<= '1' when (opcode = INST_AND OR opcode = INST_OR OR opcode = ADD OR opcode = SUB 
-										OR opcode = SLT OR opcode = JR OR opcode = INST_NOR) else '0';
+										OR opcode = SLT OR opcode = JR OR opcode = INST_NOR OR opcode = SIG_SLL OR opcode = SIG_SRL) else '0';
 
 end architecture;

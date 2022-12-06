@@ -15,13 +15,24 @@
 
 -- Quartus Prime generated Memory Initialization File (.mif)
 
-WIDTH=64;
+WIDTH=32;
 DEPTH=64;
 
-ADDRESS_RADIX=UNS;
-DATA_RADIX=UNS;
+ADDRESS_RADIX=DEC;
+DATA_RADIX=HEX;
 
 CONTENT BEGIN
-	0        :   01286827; --nor $t1 $t0 $t5 ($t5 := FFFFFFF5)
-	[1..63]  :   0;
+
+      -- Valores iniciais no banco de registradores:
+      -- $t0   (#8) := 0x00
+      -- $t1   (#9) := 0x0A
+      -- $t2  (#10) := 0x0B
+      -- $t3  (#11) := 0x0C
+      -- $t4  (#12) := 0x0D
+      -- $t5  (#13) := 0x16
+
+      0        :   01286827; --nor $t1 $t0 $t5 ($t5 := FFFFFFF5)
+      1        :   000A5080; --sll $0 $t2 $t2 ($t2 := 0000002C)
+      2        :   000B5882; --srl $0 $t3 $t3 ($t3 := 00000030)
+      [3..31]  :   0;
 END;
